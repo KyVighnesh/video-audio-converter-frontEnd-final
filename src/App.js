@@ -80,14 +80,14 @@ function App() {
           loading == false?<a
           href={converted}
           download = 'file.mp3'
-            onClick={() => {
+            
+        >
+          <button onClick={() => {
             fileDownload(converted, "nok.mp3")
             console.log(converted)
             
           }
-}
-        >
-          <button>Audio is Ready</button>
+}>Audio is Ready</button>
         </a>:""
         }
 
