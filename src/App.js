@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
 import { useState } from 'react';
+import fileDownload from 'js-file-download'
+
 
 function App() {
 
@@ -78,6 +80,12 @@ function App() {
           loading == false?<a
           href={converted}
           download = 'file.mp3'
+            onClick={() => {
+            fileDownload(converted, "nok.mp3")
+            console.log(converted)
+            
+          }
+}
         >
           <button>Audio is Ready</button>
         </a>:""
