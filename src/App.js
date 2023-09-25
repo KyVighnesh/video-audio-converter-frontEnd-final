@@ -5,6 +5,7 @@ import { useState } from 'react';
 import fileDownload from 'js-file-download'
 
 
+
 function App() {
 
   const [file,setFile]=useState("");
@@ -15,10 +16,12 @@ function App() {
  
 
   const handleFileChange=(event)=>{
+
     setFile(event.target.files[0])
+
+  }
     
 
-}
 
 
   const videoUpload = () => {
@@ -38,6 +41,8 @@ function App() {
 
       axios.post("https://audio-video-converter-digikull.onrender.com/upload",formData,config).then(data=> {
         console.log(data)
+
+        
       
         setConverted(data.data.fileLink)
 
@@ -77,18 +82,16 @@ function App() {
         }
 
         {
-          loading == false?<a
-          href={converted}
-          download = 'file.mp3'
-            
-        >
-          <button onClick={() => {
+          loading == false?
+          <a href = {converted} onClick={() => {
             fileDownload(converted, "nok.mp3")
             console.log(converted)
             
           }
-}>Audio is Ready</button>
-        </a>:""
+}>
+          <button>Download Audio</button>
+</a>
+        :""
         }
 
 
@@ -98,5 +101,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
