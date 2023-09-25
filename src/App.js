@@ -34,7 +34,7 @@ function App() {
         },
       }
 
-      axios.post("http://localhost:8090/upload",formData,config).then(data=> {
+      axios.post("https://audio-video-converter-digikull.onrender.com/upload",formData,config).then(data=> {
         console.log(data)
       
         setConverted(data.data.fileLink)
